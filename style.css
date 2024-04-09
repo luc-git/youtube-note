@@ -1,3 +1,13 @@
 #note {
-    height: 500px;
+    margin-top: 12px;
+    border-radius: 16px;
+    border: 0px solid #CFD9DE;
+    border-width: 1px;
+    min-height: 104px;
+    overflow-wrap: anywhere;
+    font: 14px "TwitterChirp", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+#content {
+    padding: 12px;
 }
