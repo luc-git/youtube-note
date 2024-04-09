@@ -3,7 +3,9 @@
     "name": "Hello Extensions",
     "description": "Base Level Extension",
     "version": "1.0",
-    "action": {
-      "default_popup": "index.html"
-    }
+    "content_scripts":[{
+      "matches": ["*://*.youtube.com/*"],
+      "js": ["src.js"],
+      "css": ["style.css"]
+    }]
 }
