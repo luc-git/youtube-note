@@ -1,11 +1,14 @@
 {
     "manifest_version": 3,
-    "name": "Hello Extensions",
+    "name": "Youtube notes",
     "description": "Base Level Extension",
     "version": "1.0",
     "content_scripts":[{
       "matches": ["*://*.youtube.com/*"],
       "js": ["src.js"],
       "css": ["style.css"]
-    }]
+    }],
+    "permissions": [
+      "activeTab"
+    ]
 }
