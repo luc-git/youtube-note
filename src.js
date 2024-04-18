@@ -12,21 +12,28 @@ async function getnote(content, video) {
   content.innerText = JSON.stringify(response["rows"][0]["note"])
 }
 
-function main() {
-  if (!location.href.includes("watch")){
+function addnotediv(div, content) {
+  if (!location.href.includes("watch") || document.querySelector("#note")){
     return
   }
   let video = document.querySelector("video")
-  let player = document.querySelector("#player")  
-  let div = document.createElement("div")
-  let content = document.createElement("div")
-  div.id = "note"
-  content.id = "content"
+  let player = document.querySelector("#player")
   player.appendChild(div)
   div.appendChild(content)
   getnote(content, video)
   video.addEventListener("timeupdate", () => {
     getnote(content, video)
+  })
+}
+
+function main() {
+  let div = document.createElement("div")
+  let content = document.createElement("div")
+  div.id = "note"
+  content.id = "content"
+  addnotediv(div, content)
+  browser.runtime.onMessage.addListener(() => {
+    addnotediv(div, content)
   })
   console.log("HEREEEE" + location.href)
 }

@@ -9,6 +9,11 @@
       "css": ["style.css"]
     }],
     "permissions": [
-      "activeTab"
-    ]
+      "activeTab",
+      "tabs"
+    ],
+    "background": {
+      "scripts": ["background.js"],
+      "type": "module"
+    }
 }
