@@ -1,4 +1,4 @@
-main()
+setTimeout(main, 2000)
 
 async function getnote(content, video) {
   let url = location.href.split("v=")[1]
@@ -12,14 +12,18 @@ async function getnote(content, video) {
   content.innerText = JSON.stringify(response["rows"][0]["note"])
 }
 
-function addnotediv(div, content) {
-  if (!location.href.includes("watch") || document.querySelector("#note")){
+function addnotebox(note, content) {
+  if (!location.href.includes("watch")){
     return
   }
   let video = document.querySelector("video")
-  let player = document.querySelector("#player")
-  player.appendChild(div)
-  div.appendChild(content)
+  let abovethefold = document.querySelector("#above-the-fold")
+  if (document.querySelector("#note")){
+    getnote(content, video)
+    return
+  }
+  abovethefold.appendChild(note)
+  note.appendChild(content)
   getnote(content, video)
   video.addEventListener("timeupdate", () => {
     getnote(content, video)
@@ -27,13 +31,13 @@ function addnotediv(div, content) {
 }
 
 function main() {
-  let div = document.createElement("div")
+  let note = document.createElement("div")
   let content = document.createElement("div")
-  div.id = "note"
+  note.id = "note"
   content.id = "content"
-  addnotediv(div, content)
+  addnotebox(note, content)
   browser.runtime.onMessage.addListener(() => {
-    addnotediv(div, content)
+    addnotebox(note, content)
   })
   console.log("HEREEEE" + location.href)
 }
