@@ -9,3 +9,9 @@ body:
       placeholder: ex https://www.youtube.com/watch?v= https://youtu.be/
     validations:
       required: true
+  - type: textarea
+    attributes:
+      label: note
+      description: Please add the misinformation you found. The time and the reference(s) link
+    validations:
+      required: true
