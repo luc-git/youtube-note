@@ -10,3 +10,8 @@ Youtube-note will add a box under the video description and will check each seco
 
 The database is hosted on [dolthub](https://www.dolthub.com/repositories/luc-dolt/note/data/main)
 
+## Contributing
+
+Please add an [issue](https://github.com/luc-git/youtube-note/issues/new/choose).
+
+Select `proposing note` if you want to add a note to a specific video or a blank issue for other issues type
