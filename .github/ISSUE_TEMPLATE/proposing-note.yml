@@ -1,0 +1,11 @@
+name: proposing note
+description: Use this template to propose a note to a youtube video
+labels: "addnote"
+body:
+  - type: input
+    attributes:
+      label: Youtube video link
+      description: Please add youtube video or short link
+      placeholder: ex https://www.youtube.com/watch?v= https://youtu.be/
+    validations:
+      required: true
